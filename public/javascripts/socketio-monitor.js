@@ -6,8 +6,8 @@ $(function () {
 
     var socket = io($("#http").val() + $("#server").val() + ':' + $("#port").val() + $("#namespace").val());
 
-    a($("#server").val());
-    function a(s) {
+    //listenToSocket($("#server").val());
+    function listenToSocket(s) {
         socket = io($("#http").val() + s + ':' + $("#port").val());
         //socket.connect();
         socket.on('connect', () => {
@@ -95,7 +95,7 @@ $(function () {
     //on listen button click
     $("#listen").click(function () {
         console.log("listened")
-        a($("#server").val());
+        listenToSocket($("#server").val());
     })
 
     //on disconnect button click
