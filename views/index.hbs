@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Socket.io Monitor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="javascripts/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="javascripts/socketio-monitor.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+
+<body style="background-color:rgb(184, 179, 179);">
+    <h1><span class="label label-info">Socket.io Monitor</span></h1>
+    
+
+    <h6>version 1.0</h6>
+
+    <div class="container-fluid">
+        <div class="row" id="up">
+
+            <div class="col-md-6">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div id="setting" class="col-md-6">
+
+                            <h3 class="col">socket.id</h3>
+                            <input id="socketId" type="text" class="col" placeholder="socket.id will be set upon successfull connection to the server"/>
+                            <h3 class="col">socket status</h3>
+                            <div id="socketStatus" class="col"></div>
+
+                            <div id="server_zone">
+                                <h3>protocol</h3>
+                                <input id="http" type="text" value="http://" />
+                                <h3>server</h3>
+                                <input id="server" type="text" value="127.0.0.1" />
+                                <h3>:port</h3>
+                                <input id="port" type="text" value="3004" />
+                                <h3>/namespace</h3>
+                                <input id="namespace" type="text" placeholder="usually empty" />
+                                <button class="btn btn-primary" id="listen" type="button">listen</button>
+                                <button class="btn btn-danger" id="close" type="button">close</button>
+
+                            </div>
+                        </div>
+                        <div id="logs" class="col-md-6">
+
+
+                                <h3>LOGS</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-6">
+
+                <div class="container-fluid">
+                    <div class="col">
+
+                        EMIT
+                        <div id="emit_zone" class="row-md-6">
+                            emit event
+                            <input id="emit_event" type="text" value="private" class="col" />
+                            emit to<input id="emit_to" type="text" class="col" placeholder="socket.id"/>
+                            emit data
+                            <input id="emit_data" type="text" class="col" />
+                            <button id="sendBtn" class="rcolow" type="button">Send</button>
+                        </div>
+                        ON
+                        <div id="on_zone" class="row-md-6">
+
+                            incoming
+                            <input id="incoming" type="text" class="col" />
+                            data length
+                            <input id="on_dataLength" type="text" placeholder="if data is array" class="col" />
+                            event name
+                            <input id="on_event" type="text" value="private" class="col" />
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row-md-6">
+
+            <div id="on_data">
+                Incoming data here.
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+</body>
+
+</html>
