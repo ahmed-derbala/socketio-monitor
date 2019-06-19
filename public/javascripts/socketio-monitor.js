@@ -13,6 +13,7 @@ $(function () {
         //socket = io($("#http").val() + s + ':' + $("#port").val());
         //socket.connect();
         socket.on('connect', () => {
+            console.log(socket)
             $("#logs").prepend("<p class='logsGreen'>" + (new Date().getHours()) + ':' + (new Date().getMinutes()) + ':' + (new Date().getSeconds()) + ':' + (new Date().getMilliseconds()) + ' connect  ' + "</p>")
             $("#socketStatus").html("<p class='green'> connected  </p>")
             $("#socketId").val(socket.id);
