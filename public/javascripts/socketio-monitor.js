@@ -4,9 +4,9 @@ $(function () {
 
     $("#socketStatus").html("<p class='red'> configure the server and press listen!</p>")
 
-    //var socket = io($("#http").val() + $("#server").val() + ':' + $("#port").val() + $("#namespace").val());
+    var socket = io($("#http").val() + $("#server").val() + ':' + $("#port").val() + $("#namespace").val());
 
-    listenToSocket($("#server").val());
+    //listenToSocket($("#server").val());
     function listenToSocket(s) {
         socket = io($("#http").val() + s + ':' + $("#port").val());
         //socket.connect();
