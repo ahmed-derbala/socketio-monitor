@@ -1,17 +1,26 @@
 {
-  "name": "socketio-monitor",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "hbs": "~4.0.4",
-    "http-errors": "~1.6.3",
-    "ip": "^1.1.5",
-    "morgan": "~1.9.1"
-  }
+    "name": "socketio-monitor",
+    "version": "1.4.0",
+    "description": "socket.io monitor tool",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ahmed-derbala/socketio-monitor"
+    },
+    "keywords": [
+        "socket.io", "socket.io monitor", "socket.io-monitor"
+    ],
+    "author": "Ahmed Derbala",
+    "dependencies": {
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "express": "~4.16.1",
+        "hbs": "~4.0.4",
+        "http-errors": "~1.6.3",
+        "ip": "^1.1.5",
+        "morgan": "~1.9.1"
+    }
 }
