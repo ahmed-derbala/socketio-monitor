@@ -1,7 +1,7 @@
 {
     "name": "socketio-monitor",
     "version": "1.4.0",
-    "description": "socket.io monitor tool",
+    "description": "socket.io monitoring tool",
     "private": true,
     "scripts": {
         "start": "node ./bin/www"

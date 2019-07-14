@@ -16,88 +16,65 @@
     <h1><span class="label label-info">Socket.io Monitor</span></h1>
 
 
-    <h6>version 1.4</h6>
+    <h6><a href="https://www.linkedin.com/in/ahmed-derbala-04a102149/">developed by Ahmed Derbala</a>
+    </h6>
 
     <div class="container-fluid">
-        <div class="row" id="up">
+        <div class="row">
+            <div class="col-md-4">
 
-            <div class="col-md-6">
-                <div class="container-fluid">
+                <h3>socket.id</h3>
+                <input id="socketId" type="text"
+                    placeholder="socket.id will be set upon successfull connection to the server" />
+                <h3>socket status</h3>
+                <div id="socketStatus"></div>
 
-                    <div class="row">
-                        <div id="setting" class="col-md-6">
-
-                            <h3 class="col">socket.id</h3>
-                            <input id="socketId" type="text" class="col"
-                                placeholder="socket.id will be set upon successfull connection to the server" />
-                            <h3 class="col">socket status</h3>
-                            <div id="socketStatus" class="col"></div>
-
-                            <div id="server_zone">
-                                <h3>server</h3>
-                                <input id="server" type="text" value="127.0.0.1:3001" />
-
-                                <button class="btn btn-primary" id="listen" type="button">Start</button>
-                                <button class="btn btn-danger" id="close" type="button">close</button>
-
-                            </div>
-                        </div>
-                        <div id="logs" class="col-md-6">
-
-
-                            <h3>LOGS</h3>
-                        </div>
-                    </div>
+                <div id="server_zone">
+                    <h3>server</h3>
+                    <input id="server" type="text" value="127.0.0.1:3000" />
+                    <button class="btn btn-primary" id="listen" type="button">Listen</button>
+                    <button class="btn btn-danger" id="close" type="button">close</button>
+                </div>
+                <div id="logs">
+                    <h3>LOGS</h3>
                 </div>
             </div>
 
+            <div class="col-md-4">
+
+                EMIT
+                <div id="emit_zone">
+                    event name
+                    <input id="emit_event" type="text" value="private" placeholder="event name" />
+                    emit to<input id="emit_to" type="text" placeholder="socket.id" />
+                    data
+                    <input id="emit_data" type="text" />
+                    <button id="sendBtn" type="button">Send</button>
+                </div>
+                ON
+                <div id="on_zone">
+
+                    incoming
+                    <input id="incoming" type="text" />
+                    data length
+                    <input id="on_dataLength" type="text" placeholder="if data is array" />
+                    event name
+                    <input id="on_event" type="text" value="broadcast_message" />
+                    <button id="listenBtn" type="button">Listen</button>
 
 
-            <div class="col-md-6">
-
-                <div class="container-fluid">
-                    <div class="col">
-
-                        EMIT
-                        <div id="emit_zone" class="row-md-6">
-                            emit event
-                            <input id="emit_event" type="text" value="private" class="col" />
-                            emit to<input id="emit_to" type="text" class="col" placeholder="socket.id" />
-                            emit data
-                            <input id="emit_data" type="text" class="col" />
-                            <button id="sendBtn" class="rcolow" type="button">Send</button>
-                        </div>
-                        ON
-                        <div id="on_zone" class="row-md-6">
-
-                            incoming
-                            <input id="incoming" type="text" class="col" />
-                            data length
-                            <input id="on_dataLength" type="text" placeholder="if data is array" class="col" />
-                            event name
-                            <input id="on_event" type="text" value="broadcast_message" class="col" />
-                            <button id="listenBtn" class="rcolow" type="button">Listen</button>
+                </div>
+            </div>
+                <div class="col-md-4">
 
 
-                        </div>
+                    <div id="on_data">
+                        Incoming data here.
                     </div>
                 </div>
 
             </div>
-        </div>
-        <div class="row-md-6">
-
-            <div id="on_data">
-                Incoming data here.
-            </div>
-        </div>
-
-
-
-
-
     </div>
-
 </body>
 
 </html>

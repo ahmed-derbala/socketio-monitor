@@ -8,12 +8,12 @@ $(function() {
         return (new Date().getHours()) + ':' + (new Date().getMinutes()) + ':' + (new Date().getSeconds()) + ':' + (new Date().getMilliseconds()) + ' | ';
     }
     var socket;
-    listenToSocket($("#server").val());
+    //listenToSocket($("#server").val());
 
     function listenToSocket(s) {
         socket = io($("#server").val());
         socket.on('connect', () => {
-            console.log(socket)
+            //console.log(socket)
             $("#logs").prepend("<p class='logsGreen'>" + nowTimestamp() + ' connect  ' + "</p>")
             $("#socketStatus").html("<p class='green'> connected  </p>")
             $("#socketId").val(socket.id);
@@ -105,20 +105,21 @@ $(function() {
     //on disconnect button click
     $("#close").click(function() {
         // $("#socketStatus").html("<p class='red'> disconnected!  </p>")
+        $("#socketStatus").html("<p class='red'> configure the server and press listen!</p>")
 
-        //socket.disconnect();
-        socket.on($("#on_event").val(), (on_data) => {
-            $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + $("#on_event").val() + "</p>")
+        socket.disconnect();
+        /* socket.on($("#on_event").val(), (on_data) => {
+             $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + $("#on_event").val() + "</p>")
 
-            $("#on_data").prepend("<p class='message'>" + nowTimestamp() + ' ' + $("#on_event").val() + ' | ' + JSON.stringify(on_data) + "</p>")
+             $("#on_data").prepend("<p class='message'>" + nowTimestamp() + ' ' + $("#on_event").val() + ' | ' + JSON.stringify(on_data) + "</p>")
 
-            if (on_data.length) {
-                $("#on_dataLength").val(on_data.length)
-            }
-            //$("#on_data").prepend("<p class='on_data'>" + JSON.stringify(on_data) + "</p>")
-            incoming++;
-            $("#incoming").val(incoming)
-        })
+             if (on_data.length) {
+                 $("#on_dataLength").val(on_data.length)
+             }
+             //$("#on_data").prepend("<p class='on_data'>" + JSON.stringify(on_data) + "</p>")
+             incoming++;
+             $("#incoming").val(incoming)
+         })*/
     })
 
 
