@@ -17,6 +17,7 @@
 
 
     <h6><a href="https://www.linkedin.com/in/ahmed-derbala-04a102149/">developed by Ahmed Derbala</a>
+    <br> version 1.6
     </h6>
 
     <div class="container-fluid">
@@ -44,22 +45,17 @@
 
                 EMIT
                 <div id="emit_zone">
-                    event name
-                    <input id="emit_event" type="text" value="private" placeholder="event name" />
-                    emit to<input id="emit_to" type="text" placeholder="socket.id" />
-                    data
-                    <input id="emit_data" type="text" />
+                    event name  <input id="emit_event" type="text"  placeholder="event to emit" /><br>
+                    emit to  <input id="emit_to" type="text" placeholder="socket.id, optionnal" /><br>
+                    data  <input id="emit_data" type="text" /><br>
                     <button id="sendBtn" type="button">Send</button>
                 </div>
                 ON
                 <div id="on_zone">
 
-                    incoming
-                    <input id="incoming" type="text" />
-                    data length
-                    <input id="on_dataLength" type="text" placeholder="if data is array" />
-                    event name
-                    <input id="on_event" type="text" value="broadcast_message" />
+                    incoming  <input id="incoming" type="text" /><br>
+                    data length  <input id="on_dataLength" type="text" placeholder="if data is array" /><br>
+                    event name  <input id="on_event" type="text"  placeholder="event to listen"/><br>
                     <button id="listenBtn" type="button">Listen</button>
 
 

@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     var incoming = 0; //incoming counter
     $("#incoming").val(incoming)
 
@@ -35,7 +35,7 @@ $(function() {
         });
         socket.on('reconnect_error', (error) => {
             $("#logs").prepend("<p class='logsRed'>" + nowTimestamp() + ' reconnect_error | ' + error + "</p>")
-                //$("#socketStatus").html("<p class='red'> reconnection error  </p>")
+            //$("#socketStatus").html("<p class='red'> reconnection error  </p>")
             $("#socketId").val('');
         });
         socket.on('reconnect', (attemptNumber) => {
@@ -61,7 +61,7 @@ $(function() {
         });
         socket.on('connect_error', (error) => {
             $("#logs").prepend("<p class='logsRed'>" + nowTimestamp() + ' connect_error | ' + error + "</p>")
-                //$("#socketStatus").html("<p class='red'> connection error  </p>")
+            //$("#socketStatus").html("<p class='red'> connection error  </p>")
             $("#socketId").val("")
         });
         socket.on('error', (error) => {
@@ -71,24 +71,31 @@ $(function() {
         });
 
         //custom event
-        socket.on($("#on_event").val(), (on_data) => {
-            $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + $("#on_event").val() + "</p>")
+        $("#listenBtn").click(function () {
+            $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + 'ON | ' + $("#on_event").val() + "</p>")
 
-            $("#on_data").prepend("<p class='message'>" + nowTimestamp() + ' ' + $("#on_event").val() + ' | ' + JSON.stringify(on_data) + "</p>")
 
-            if (on_data.length) {
-                $("#on_dataLength").val(on_data.length)
-            }
-            //$("#on_data").prepend("<p class='on_data'>" + JSON.stringify(on_data) + "</p>")
-            incoming++;
-            $("#incoming").val(incoming)
+            socket.on($("#on_event").val(), (on_data) => {
+                console.log('data received')
+
+                $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + $("#on_event").val() + "</p>")
+
+                $("#on_data").prepend("<p class='message'>" + nowTimestamp() + ' ' + $("#on_event").val() + ' | ' + JSON.stringify(on_data) + "</p>")
+
+                if (on_data.length) {
+                    $("#on_dataLength").val(on_data.length)
+                }
+                //$("#on_data").prepend("<p class='on_data'>" + JSON.stringify(on_data) + "</p>")
+                incoming++;
+                $("#incoming").val(incoming)
+            })
         })
 
 
     }
 
     //Emit message
-    $("#sendBtn").click(function() {
+    $("#sendBtn").click(function () {
         socket.emit($("#emit_event").val(), $("#emit_data").val());
         $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + 'EMIT | ' + $("#emit_event").val() + "</p>")
 
@@ -97,13 +104,13 @@ $(function() {
 
 
     //on listen button click
-    $("#listen").click(function() {
+    $("#listen").click(function () {
         console.log("listened")
         listenToSocket($("#server").val());
     })
 
     //on disconnect button click
-    $("#close").click(function() {
+    $("#close").click(function () {
         // $("#socketStatus").html("<p class='red'> disconnected!  </p>")
         $("#socketStatus").html("<p class='red'> configure the server and press listen!</p>")
 

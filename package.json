@@ -1,6 +1,6 @@
 {
     "name": "socketio-monitor",
-    "version": "1.4.0",
+    "version": "1.6.0",
     "description": "socket.io monitoring tool",
     "private": true,
     "scripts": {
@@ -11,7 +11,9 @@
         "url": "https://github.com/ahmed-derbala/socketio-monitor"
     },
     "keywords": [
-        "socket.io", "socket.io monitor", "socket.io-monitor"
+        "socket.io",
+        "socket.io monitor",
+        "socket.io-monitor"
     ],
     "author": "Ahmed Derbala",
     "dependencies": {
