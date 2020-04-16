@@ -32,6 +32,8 @@
 
                 <div id="server_zone">
                     <h3>server</h3>
+                    userId value: <input id="socketQueryValue" type="text" placeholder="like 123456"/><br>
+
                     <input id="server" type="text" value="127.0.0.1:3000" />
                     <button class="btn btn-primary" id="listen" type="button">Listen</button>
                     <button class="btn btn-danger" id="close" type="button">close</button>
@@ -46,7 +48,7 @@
                 EMIT
                 <div id="emit_zone">
                     event name  <input id="emit_event" type="text"  placeholder="event to emit" /><br>
-                    emit to  <input id="emit_to" type="text" placeholder="socket.id, optionnal" /><br>
+                    emit to  <input id="emit_to" type="text" placeholder="a userId" /><br>
                     data  <input id="emit_data" type="text" /><br>
                     <button id="sendBtn" type="button">Send</button>
                 </div>

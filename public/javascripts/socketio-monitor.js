@@ -11,7 +11,15 @@ $(function () {
     //listenToSocket($("#server").val());
 
     function listenToSocket(s) {
-        socket = io($("#server").val());
+      //socket = io($("#server").val());
+    //  console.log( $("#socketQuery").val());
+    //  console.log( $("#socketQueryValue").val());
+
+      //socket = io($("#server").val(),{query:{"aa":"bb"}})
+      socket = io($("#server").val(), { query: { "userId": $("#socketQueryValue").val() } }); //socket.connect();
+
+      //console.log(socket.query)
+
         socket.on('connect', () => {
             //console.log(socket)
             $("#logs").prepend("<p class='logsGreen'>" + nowTimestamp() + ' connect  ' + "</p>")
@@ -76,6 +84,8 @@ $(function () {
 
 
             socket.on($("#on_event").val(), (on_data) => {
+            //socket.on('newNotification', (on_data) => {
+
                 console.log('data received')
 
                 $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + $("#on_event").val() + "</p>")
@@ -96,7 +106,9 @@ $(function () {
 
     //Emit message
     $("#sendBtn").click(function () {
-        socket.emit($("#emit_event").val(), $("#emit_data").val());
+        socket.emit($("#emit_event").val(), {to:$("#emit_to").val(),data:$("#emit_data").val()});
+        console.log($("#emit_event").val());
+        console.log($("#emit_data").val());
         $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + 'EMIT | ' + $("#emit_event").val() + "</p>")
 
     })
