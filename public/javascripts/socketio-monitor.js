@@ -61,12 +61,12 @@ $(function () {
             $("#socketId").val("")
             $("#socketStatus").html("<p class='red'> reconnection failed  </p>")
         });
-        socket.on('ping', () => {
+        /*socket.on('ping', () => {
             $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + ' ping' + "</p>")
-        });
-        socket.on('pong', (latency) => {
+        });*/
+        /*socket.on('pong', (latency) => {
             $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + ' pong | ' + latency + "</p>")
-        });
+        });*/
         socket.on('connect_error', (error) => {
             $("#logs").prepend("<p class='logsRed'>" + nowTimestamp() + ' connect_error | ' + error + "</p>")
             //$("#socketStatus").html("<p class='red'> connection error  </p>")
