@@ -86,9 +86,9 @@ $(function () {
             socket.on($("#on_event").val(), (on_data) => {
             //socket.on('newNotification', (on_data) => {
 
-                console.log('data received')
-
-                $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + $("#on_event").val() + "</p>")
+                incoming++;
+                $("#incoming").val(incoming)
+                $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + ' received data on '+$("#on_event").val() +' event ('+incoming+ "</p>")
 
                 $("#on_data").prepend("<p class='message'>" + nowTimestamp() + ' ' + $("#on_event").val() + ' | ' + JSON.stringify(on_data) + "</p>")
 
@@ -96,8 +96,7 @@ $(function () {
                     $("#on_dataLength").val(on_data.length)
                 }
                 //$("#on_data").prepend("<p class='on_data'>" + JSON.stringify(on_data) + "</p>")
-                incoming++;
-                $("#incoming").val(incoming)
+                
             })
         })
 
