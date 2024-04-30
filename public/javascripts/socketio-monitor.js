@@ -78,6 +78,22 @@ $(function () {
             $("#socketId").val("")
         });
 
+        socket.on("welcome", (on_data) => {
+            //socket.on('newNotification', (on_data) => {
+
+                incoming++;
+                $("#incoming").val(incoming)
+                $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + ' received data on '+$("#on_event").val() +' event ('+incoming+ "</p>")
+
+                $("#on_data").prepend("<p class='message'>" + nowTimestamp() + ' ' + 'welcome' + ' | ' + JSON.stringify(on_data) + "</p>")
+
+                if (on_data.length) {
+                    $("#on_dataLength").val(on_data.length)
+                }
+                //$("#on_data").prepend("<p class='on_data'>" + JSON.stringify(on_data) + "</p>")
+                
+            })
+
         //custom event
         $("#listenBtn").click(function () {
             $("#logs").prepend("<p class='logsBlack'>" + nowTimestamp() + 'ON | ' + $("#on_event").val() + "</p>")
@@ -98,6 +114,8 @@ $(function () {
                 //$("#on_data").prepend("<p class='on_data'>" + JSON.stringify(on_data) + "</p>")
                 
             })
+
+            
         })
 
 
